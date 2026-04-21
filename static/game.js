@@ -68,7 +68,8 @@ socket.on("players", (players) => {
             }
         } else {
             // smoothly catch up to server position
-            mesh.position.lerp(new THREE.Vector3(p.x, p.y, p.z), 0.15);
+            const _lerpTarget = new THREE.Vector3()
+            mesh.position.lerp(_lerpTarget.set(p.x, p.y, p.z), 0.15);
         }
     }
     // clean up players who left
